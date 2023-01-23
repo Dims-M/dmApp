@@ -2,9 +2,10 @@ import React from "react";
 import "./Rate.css";
 
 class Rate extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+    this.getRateData();
+  }
 
   render() {
     return (
@@ -30,6 +31,32 @@ class Rate extends React.Component {
       </div>
     );
   }
+
+  getRateData = () => {
+    // var myHeaders = new Headers();
+    // myHeaders.append("apikey", "ZCk1jAPayX9V4og1figAupODeD63SrHp");
+
+    // var requestOptions = {
+    //   method: "GET",
+    //   redirect: "follow",
+    //   headers: myHeaders,
+    // };
+
+    fetch(
+      // "https://api.exchangeratesapi.io/v1/latest?access_key=ZCk1jAPayX9V4og1figAupODeD63SrHp"
+      fetch(
+        "https://www.cbr-xml-daily.ru/latest.js"
+        // "https://api.apilayer.com/exchangerates_data/latest?symbols=symbols&base=base",
+        // requestOptions
+      )
+    )
+      .then((data) => {
+        return data.json();
+      })
+      .then((data) => {
+        console.log(data);
+      });
+  };
 }
 
 export default Rate;
