@@ -4,6 +4,11 @@ import "./Rate.css";
 class Rate extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      date: "",
+      currencyRate: {},
+    };
+    this.currency = ["USD", "RUB", "CAD", "PHP"];
     this.getRateData();
   }
 
@@ -57,6 +62,7 @@ class Rate extends React.Component {
       })
       .then((data) => {
         console.log(data);
+        this.setState({ date: data.date });
       });
   };
 }
