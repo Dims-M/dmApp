@@ -15,23 +15,15 @@ class Rate extends React.Component {
   render() {
     return (
       <div className="Rate">
-        <h3> Курс валют на 30 ноября 2019</h3>
+        <h3> Курс валют на {this.state.date}</h3>
         <div className="flex-container">
-          <div className="block flex-item">
-            <div className="currency-name">USD</div>
-            <div className="currency-in">1500 Kr</div>
-            <div className="currency-out">1200 Kr</div>
-          </div>
-          <div className="block flex-item">
-            <div className="currency-name">USD</div>
-            <div className="currency-in">1500 Kr</div>
-            <div className="currency-out">1200 Kr</div>
-          </div>
-          <div className="block flex-item">
-            <div className="currency-name">USD</div>
-            <div className="currency-in">1500 Kr</div>
-            <div className="currency-out">1200 Kr</div>
-          </div>
+          {Object.keys(this.state.currencyRate).map((keyName, i) => (
+            <div className="block flex-item" key={keyName}>
+              <div className="currency-name">USD</div>
+              <div className="currency-in">1500 Kr</div>
+              <div className="currency-out">1200 Kr</div>
+            </div>
+          ))}
         </div>
       </div>
     );
@@ -63,6 +55,12 @@ class Rate extends React.Component {
       .then((data) => {
         console.log(data);
         this.setState({ date: data.date });
+        let rusult = {};
+        for (let i = 0; i < this.currency.length; i++) {
+          rusult[this.currency[i]] = data.rates[this.currency[i]];
+        }
+        console.log(rusult);
+        this.setState({ currencyRate: rusult });
       });
   };
 }
