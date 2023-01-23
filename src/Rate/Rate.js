@@ -44,11 +44,13 @@ class Rate extends React.Component {
 
     fetch(
       // "https://api.exchangeratesapi.io/v1/latest?access_key=ZCk1jAPayX9V4og1figAupODeD63SrHp"
-      fetch(
-        "https://www.cbr-xml-daily.ru/latest.js"
-        // "https://api.apilayer.com/exchangerates_data/latest?symbols=symbols&base=base",
-        // requestOptions
-      )
+      // fetch(
+      "https://api.apilayer.com/exchangerates_data/latest?apikey=ZCk1jAPayX9V4og1figAupODeD63SrHp"
+      // "https://apilayer.com/marketplace/playground/exec?api_id=223&method=get&endpoint=/latest"
+      // "https://www.cbr-xml-daily.ru/latest.js"
+      // "https://api.apilayer.com/exchangerates_data/latest?symbols=symbols&base=base",
+      // requestOptions
+      // )
     )
       .then((data) => {
         return data.json();
