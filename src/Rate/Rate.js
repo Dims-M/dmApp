@@ -19,9 +19,11 @@ class Rate extends React.Component {
         <div className="flex-container">
           {Object.keys(this.state.currencyRate).map((keyName, i) => (
             <div className="block flex-item" key={keyName}>
-              <div className="currency-name">USD</div>
-              <div className="currency-in">1500 Kr</div>
-              <div className="currency-out">1200 Kr</div>
+              <div className="currency-name">{keyName}</div>
+              <div className="currency-in">
+                {this.state.currencyRate[keyName].toFixed(2)}*
+              </div>
+              <p>Купить за 1 EUR</p>
             </div>
           ))}
         </div>
