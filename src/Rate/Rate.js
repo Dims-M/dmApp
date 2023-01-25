@@ -1,4 +1,5 @@
 import React from "react";
+import Calc from "../Calc/Calc";
 import "./Rate.css";
 
 class Rate extends React.Component {
@@ -27,10 +28,12 @@ class Rate extends React.Component {
             </div>
           ))}
         </div>
+        <Calc />
       </div>
     );
   }
 
+  //юполучаем данные по API
   getRateData = () => {
     // var myHeaders = new Headers();
     // myHeaders.append("apikey", "ZCk1jAPayX9V4og1figAupODeD63SrHp");
