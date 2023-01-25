@@ -13,7 +13,7 @@ class Calc extends React.Component {
 
   render() {
     return;
-    <div class="calculator">
+    <div className="calculator">
       <h3> Калькулятор обмена</h3>
       <div className="block">
         <div>Я хочу</div>
