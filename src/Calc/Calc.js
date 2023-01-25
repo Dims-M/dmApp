@@ -47,9 +47,9 @@ class Calc extends React.Component {
             <h4>Результат</h4>
             <ul className="calc-res">
               <li>EUR 150</li>
+              {/* <li>EUR 150</li>
               <li>EUR 150</li>
-              <li>EUR 150</li>
-              <li>EUR 150</li>
+              <li>EUR 150</li> */}
             </ul>
           </div>
         </div>
