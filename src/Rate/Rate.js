@@ -28,7 +28,7 @@ class Rate extends React.Component {
             </div>
           ))}
         </div>
-        <Calc />
+        <Calc rate={this.state.currencyRate} />
       </div>
     );
   }

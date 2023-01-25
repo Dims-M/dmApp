@@ -32,9 +32,15 @@ class Calc extends React.Component {
           <div>
             <input type="number" defaultValue="150" />
             <select name="" id="">
-              <option value="USD">USD</option>
+              {/* <option value="USD">USD</option>
               <option value="RUB">RUB</option>
-              <option value="EUR">EUR</option>
+              <option value="EUR">EUR</option> */}
+
+              {Object.keys(this.props.rate).map((keyName, i) => (
+                <option key={keyName} value={keyName}>
+                  {keyName}
+                </option>
+              ))}
             </select>
           </div>
           <div>
