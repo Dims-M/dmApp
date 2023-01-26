@@ -7,7 +7,7 @@ class Nav extends React.Component {
       <div className="header-nav">
         <div className="container">
           <nav>
-            {/* <ul>
+            <ul>
               <li>
                 <a href="#">Главная</a>
               </li>
@@ -17,7 +17,7 @@ class Nav extends React.Component {
               <li>
                 <a href="#">Контакты</a>
               </li>
-            </ul> */}
+            </ul>
           </nav>
         </div>
       </div>
