@@ -1,11 +1,13 @@
 import React from "react";
 import "./App.css";
-// import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+//import { Router, Switch } from "react-router";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 // npm install --save react-router-dom
 
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import Rate from "./Rate/Rate";
+//import { Route } from "react-router";
 
 class App extends React.Component {
   // constructor(props) {
@@ -19,7 +21,11 @@ class App extends React.Component {
 
         <div className="container">
           <main>
-            <Rate />
+            <Router>
+              <Switch>
+                <Route exact path="/" component={Rate} />
+              </Switch>
+            </Router>
           </main>
         </div>
 
