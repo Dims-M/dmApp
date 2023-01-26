@@ -5,19 +5,24 @@ class Calc extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // date: "",
-      // currencyRate: {},
+      result: 0,
     };
-    // this.currency = ["USD", "RUB", "CAD", "PHP"];
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    return { rate: props.rate };
   }
 
   calcRate = (e) => {
     e.preventDefault();
-    console.log(e);
-    console.log("Отправка формы");
-    console.log(e.target.elemens);
-    let elemens = e.target.elemens;
-    console.log(elemens);
+    console.log("work");
+    let elements = e.target.elements;
+    console.log(elements);
+    console.log(elements["count-currency"].value);
+    console.log(elements["type-currency"].value);
+    let countCurrency = elements["count-currency"].value;
+    let typeCurrency = elements["type-currency"].value;
+    this.setState({ result: countCurrency / this.state.rate[typeCurrency] });
   };
 
   render() {
@@ -27,25 +32,9 @@ class Calc extends React.Component {
         <div className="block">
           <div>Я хочу</div>
           <div>
-            <label>
-              <input type="radio" name="radio" defaultValue="0" />
-              купить
-            </label>
-          </div>
-          <div>
-            <label>
-              <input type="radio" name="radio" defaultValue="1" />
-              продать
-            </label>
-          </div>
-          <div>
             <form onSubmit={this.calcRate}>
               <input type="number" defaultValue="150" name="count-currency" />
-              <select name="" id="">
-                {/* <option value="USD">USD</option>
-              <option value="RUB">RUB</option>
-              <option value="EUR">EUR</option> */}
-
+              <select name="type-currency" id="">
                 {Object.keys(this.props.rate).map((keyName, i) => (
                   <option key={keyName} value={keyName}>
                     {keyName}
@@ -58,10 +47,7 @@ class Calc extends React.Component {
           <div>
             <h4>Результат</h4>
             <ul className="calc-res">
-              <li>EUR 150</li>
-              {/* <li>EUR 150</li>
-              <li>EUR 150</li>
-              <li>EUR 150</li> */}
+              <li>EUR {this.state.result}</li>
             </ul>
           </div>
         </div>
@@ -69,5 +55,4 @@ class Calc extends React.Component {
     );
   }
 }
-
 export default Calc;
