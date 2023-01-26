@@ -10,7 +10,7 @@ class Footer extends React.Component {
             <div className="flex-container">
               <div className="flex-item">
                 <h1 className="footer-title">
-                  <a href="https://itgid.info">2019 &copy; React. Lite Level</a>
+                  <a href="https://itgid.info">2023 &copy; Димыч</a>
                 </h1>
                 <p>All Rights Reserved</p>
 
