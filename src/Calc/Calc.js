@@ -11,6 +11,15 @@ class Calc extends React.Component {
     // this.currency = ["USD", "RUB", "CAD", "PHP"];
   }
 
+  calcRate = (e) => {
+    e.preventDefault();
+    console.log(e);
+    console.log("Отправка формы");
+    console.log(e.target.elemens);
+    let elemens = e.target.elemens;
+    console.log(elemens);
+  };
+
   render() {
     return (
       <div className="calculator">
@@ -30,18 +39,21 @@ class Calc extends React.Component {
             </label>
           </div>
           <div>
-            <input type="number" defaultValue="150" />
-            <select name="" id="">
-              {/* <option value="USD">USD</option>
+            <form onSubmit={this.calcRate}>
+              <input type="number" defaultValue="150" name="count-currency" />
+              <select name="" id="">
+                {/* <option value="USD">USD</option>
               <option value="RUB">RUB</option>
               <option value="EUR">EUR</option> */}
 
-              {Object.keys(this.props.rate).map((keyName, i) => (
-                <option key={keyName} value={keyName}>
-                  {keyName}
-                </option>
-              ))}
-            </select>
+                {Object.keys(this.props.rate).map((keyName, i) => (
+                  <option key={keyName} value={keyName}>
+                    {keyName}
+                  </option>
+                ))}
+              </select>
+              <input type="submit" defaultValue="calc" />
+            </form>
           </div>
           <div>
             <h4>Результат</h4>
